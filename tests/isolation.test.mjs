@@ -11,6 +11,8 @@ test('集成验证环境不继承真实 HOME、凭证、Git 配置或 Node 注�
     NODE_OPTIONS: '--require private-hook', GIT_CONFIG_GLOBAL: '/private-git', npm_config_cache: '/private-cache',
   });
   assert.equal(env.PATH, '/test/bin');
+  assert.equal(env.LANG, 'C');
+  assert.equal(env.LC_ALL, 'C');
   for (const name of ['GH_TOKEN', 'GITHUB_TOKEN', 'SSH_AUTH_SOCK', 'NODE_OPTIONS']) assert(!(name in env));
   for (const name of ['HOME', 'XDG_CONFIG_HOME', 'XDG_STATE_HOME', 'XDG_CACHE_HOME', 'XDG_DATA_HOME', 'TMPDIR', 'npm_config_cache', 'npm_config_userconfig', 'npm_config_globalconfig', 'GIT_CONFIG_GLOBAL']) {
     assert(env[name].startsWith(`${root}${path.sep}`), name);

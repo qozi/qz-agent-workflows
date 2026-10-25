@@ -17,6 +17,8 @@ export const installerIntegrity = 'sha512-lHZJksE8UImNAr+LL6unqq7jERjdFw5EJasm17
 export function integrationEnvironment(root, inherited = process.env) {
   return {
     PATH: inherited.PATH ?? '',
+    LANG: 'C',
+    LC_ALL: 'C',
     HOME: path.join(root, 'home'),
     XDG_CONFIG_HOME: path.join(root, 'config'),
     XDG_STATE_HOME: path.join(root, 'state'),

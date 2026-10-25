@@ -44,7 +44,7 @@ node scripts/verify-installed.mjs skills/dev-workflow "$HOME/.agents/skills/dev-
 npx --yes skills@1.7.4 add "qozi/qz-agent-workflows#v2.0.0" --skill dev-workflow -a opencode -g -y --copy --json
 ```
 
-标签可变。需要不可变来源时，从 Release 核对完整提交 SHA，将 `#v2.0.0` 替换为 `#<完整40位提交SHA>`；验收证据记录完整提交。`@v2.0.0` 不是 Git 版本固定语法。安装器版本与 Skill 源码版本分别固定；安装器 npm 包仍有范围依赖，精确版本不等于永久锁定整棵依赖树。
+标签可变。需要不可变来源时，从 Release 核对完整提交 SHA，将 `#v2.0.0` 替换为 `#<完整40位提交SHA>`；验收证据记录完整提交。`skills@1.7.4` 的 SHA 回退依赖英文 Git 错误，macOS/Linux 上须在该安装命令前加 `LC_ALL=C LANG=C`；其他平台可先手动检出并核对完整提交，再使用本地来源安装，不假定直接 SHA 安装通用。`@v2.0.0` 不是 Git 版本固定语法。安装器版本与 Skill 源码版本分别固定；安装器 npm 包仍有范围依赖，精确版本不等于永久锁定整棵依赖树。
 
 ## OpenCode 接入
 

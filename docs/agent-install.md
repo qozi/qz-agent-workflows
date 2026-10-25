@@ -6,7 +6,7 @@
 
 先读取 [README](../README.md)，核对安装器及已验证命令，再说明将读取、创建和修改的准确路径，确认用户批准的安装范围。安装命令以 README 为准，不使用未固定的 `latest` 或远程安装脚本。
 
-- 固定源码到经过确认的完整 40 位 Git 提交 SHA；远程来源使用 `OWNER/REPO#完整40位SHA`，不是 `OWNER/REPO@版本`。标签需先解析并记录对应 SHA，不能将可变分支当固定来源。
+- 固定源码到经过确认的完整 40 位 Git 提交 SHA；远程来源使用 `OWNER/REPO#完整40位SHA`，不是 `OWNER/REPO@版本`。固定版安装器的 SHA 回退仅识别英文 Git 错误，macOS/Linux 安装命令前加 `LC_ALL=C LANG=C`；无法设置时先手动检出、核对完整提交，再按本地来源安装。标签需先解析并记录对应 SHA，不能将可变分支当固定来源。
 - 固定标准安装器为 `skills@1.7.4`，Node.js 要求 `>=22.20.0`。Skill 元数据版本保持 `2.0.0`；同版本号可能有本地修改，不能仅比较版本号。
 - 从同一固定源码版本取得完整 `skills/dev-workflow/`、需要接入的 `adapters/opencode/` 及本说明。安装器可能只安装 Skill，不处理适配目录。
 - OpenCode 的该安装器全局 `--copy` 目标是 `$HOME/.agents/skills/dev-workflow/`，不是原生 `~/.config/opencode/skills/`。安装器还会更新全局锁：设置 `XDG_STATE_HOME` 时为 `$XDG_STATE_HOME/skills/.skill-lock.json`，未设置时为 `$HOME/.agents/.skill-lock.json`。不能漏掉锁文件的检查和备份，仅设置 `XDG_CONFIG_HOME` 不能隔离 Skill 目标和锁文件。
